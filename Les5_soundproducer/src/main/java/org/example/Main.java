@@ -1,7 +1,9 @@
 package org.example;
 
 public class Main {
+
     public static void main(String[] args) {
+        /*
         SoundProducer producer = new SoundProducer();
         Human mens = new Human();
         Kat kat = new Kat();
@@ -13,15 +15,21 @@ public class Main {
         hond.makeSound();
 
         System.out.println("Opnieuw: ");
+
+         */
         
         SoundProducer[] producers = new SoundProducer[]{
                 new SoundProducer(),
                 new Hond(),
                 new Human(),
-                new Kat()
+                new Kat(),
+                new Vogel()
         };
 
+        int i = 0;
         for(SoundProducer p: producers){
+            i++;
+            System.out.println(i + " ");
             p.makeSound();
         }
     }

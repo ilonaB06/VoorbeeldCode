@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<GridPane alignment="center" hgap="10" minHeight="300.0" minWidth="600.0" vgap="10" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="be.odisee.bodymassindex.BodyMassIndexController">
+   <columnConstraints>
+      <ColumnConstraints />
+      <ColumnConstraints minWidth="10.0" prefWidth="100.0" />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+   </rowConstraints>
+   <children>
+      <Label text="Berekening van de Body Mass Index (BMI)" GridPane.columnSpan="2">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label text="Massa in Kg:" GridPane.rowIndex="1" />
+      <Label text="Lengte in cm:" GridPane.rowIndex="2" />
+      <Label text="Body Mass Index:" GridPane.rowIndex="3" />
+      <TextField fx:id="textFieldMassa" onAction="#updateGuiMassa" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <TextField fx:id="textFieldLengte" onAction="#updateGuiLengte" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      <TextField fx:id="textFieldBMI" onAction="#updateGuiBMI" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+      <TextArea fx:id="textBoodschap" prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="2" GridPane.rowIndex="4" />
+   </children>
+</GridPane>
