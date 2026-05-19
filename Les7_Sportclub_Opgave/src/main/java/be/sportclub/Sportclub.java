@@ -35,6 +35,14 @@ public class Sportclub {
     // Loop over lidkaarten en geef de kaart terug met dit nummer. Bestaat ze niet? return null.
     public Lidkaart zoekLidkaart(int nummer) {
         // TODO
+
+        for (Lidkaart kaart : lidkaarten) {
+            if (kaart.getNummer() == nummer) {
+                return kaart;
+            }
+        }
+
+
         return null;
     }
 
@@ -44,7 +52,11 @@ public class Sportclub {
     // verhoog het volgnummer en return de kaart.
     public Lidkaart maakNieuweLidkaart(Lid lid) {
         // TODO
-        return null;
+        Lidkaart kaart = new Lidkaart(volgendLidkaartnummer, lid);
+        lidkaarten.add(kaart);
+        volgendLidkaartnummer++;
+        return kaart;
+
     }
 
     // REQ0010 – Sportclub kan een boeking aanmaken en bijhouden
@@ -52,6 +64,9 @@ public class Sportclub {
     // Voeg de boeking toe aan de ArrayList boekingen.
     public void voegBoekingToe(Boeking b) {
         // TODO
+
+        boekingen.add(b);
+
     }
 
     // REQ0012 – Sportclub kan het totaal aantal geboekte sessies berekenen
@@ -59,7 +74,14 @@ public class Sportclub {
     // Tel alle aantalSessies uit boekingen op en return het totaal.
     public int getTotaalGeboekteSessies() {
         // TODO
-        return 0;
+
+        int totaal = 0;
+        for (Boeking b : boekingen) {
+            totaal += b.getAantalSessies();
+        }
+
+
+        return totaal;
     }
 
     // REQ0014 – Sportclub kan de totale prijs berekenen (aantalSessies × prijsPerSessie per boeking)
@@ -67,7 +89,11 @@ public class Sportclub {
     // Voor elke boeking: aantalSessies × activiteit.getPrijsPerSessie(). Tel op en return totaal.
     public double berekenTotaalPrijs() {
         // TODO
-        return 0.0;
+        double totaal = 0;
+        for (Boeking b : boekingen) {
+            totaal += b.getAantalSessies() * b.getActiviteit().getPrijsPerSessie();
+        }
+        return totaal;
     }
 
     // REQ0013 – Sportclub kan de geboekte sessies aan de lidkaart toevoegen
@@ -75,5 +101,14 @@ public class Sportclub {
     // Zoek de kaart op nummer. Als ze bestaat: kaart.voegSessiesToe(aantal).
     public void voegSessiesToeAanLidkaart(int nummer, int aantal) {
         // TODO
+        Lidkaart kaart = zoekLidkaart(nummer);
+        if (kaart != null) {
+            voegSessiesToeAanLidkaart(kaart.getNummer(), aantal);
+        }
     }
 }
+
+
+
+
+

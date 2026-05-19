@@ -8,9 +8,13 @@ public class Lid {
     // Schrijf je antwoord als comment hier onder.
     // ...
 
+    public String naam;
+
+
 
     public Lid(String naam) {
         // TODO(1): sla de naam op in het attribuut
+        this.naam = naam;
     }
 
     // REQ0002 – Het lid heeft een naam
@@ -18,6 +22,7 @@ public class Lid {
     // Geef de naam terug.
     public String getNaam() {
         // TODO
+        Lid lid = new Lid(this.naam);
         return null;
     }
 }
